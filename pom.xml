@@ -24,11 +24,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <artifactId>jboss-parent</artifactId>
-        <groupId>org.jboss</groupId>
-        <version>14</version>
-    </parent>
+
     <groupId>org.wildfly.plugins</groupId>
     <artifactId>wildfly-maven-plugin</artifactId>
     <version>1.0.2.MoJ.Fork</version>
@@ -37,6 +33,11 @@
 
     <description>A maven plugin that allows various management operations to be executed on WildFly Application Server.</description>
     <url>http://www.wildfly.org</url>
+    <parent>
+        <groupId>uk.gov.justice</groupId>
+        <artifactId>parent-pom</artifactId>
+        <version>1.6.4</version>
+    </parent>
 
     <issueManagement>
         <system>GitHub</system>
@@ -105,8 +106,6 @@
         <version.org.codehaus.plexus.plexus-component-metadata>1.5.5
         </version.org.codehaus.plexus.plexus-component-metadata>
 
-        <!-- checkstyle configuration -->
-        <linkXRef>false</linkXRef>
 
         <!-- documentation properties -->
         <appServerName>WildFly</appServerName>
@@ -168,25 +167,6 @@
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <useFile/>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>check-style</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>checkstyle</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
