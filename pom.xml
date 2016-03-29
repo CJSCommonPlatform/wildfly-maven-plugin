@@ -23,21 +23,22 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.wildfly.plugins</groupId>
-    <artifactId>wildfly-maven-plugin</artifactId>
-    <version>1.0.2.MoJ.Fork</version>
-    <packaging>maven-plugin</packaging>
-    <name>WildFly Maven Plugin</name>
-
-    <description>A maven plugin that allows various management operations to be executed on WildFly Application Server.</description>
-    <url>http://www.wildfly.org</url>
     <parent>
         <groupId>uk.gov.justice</groupId>
         <artifactId>parent-pom</artifactId>
         <version>1.6.4</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.wildfly.plugins</groupId>
+    <artifactId>wildfly-maven-plugin</artifactId>
+    <version>1.0.2.MoJ.Fork-SNAPSHOT</version>
+    <packaging>maven-plugin</packaging>
+    <name>WildFly Maven Plugin</name>
+
+    <description>A maven plugin that allows various management operations to be executed on WildFly Application Server.</description>
+    <url>http://www.wildfly.org</url>
+
 
     <issueManagement>
         <system>GitHub</system>
