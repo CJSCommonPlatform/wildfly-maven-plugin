@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CJSCommonPlatform/wildfly-maven-plugin.svg?branch=master)](https://travis-ci.org/CJSCommonPlatform/wildfly-maven-plugin)
+
 WildFly Application Server Maven Plugin
 =====================================
 
