@@ -79,4 +79,6 @@ public interface PropertyNames {
 
     String PROPERTIES_FILE = "wildfly.propertiesFile";
 
+    String KEEP_ALIVE = "wildfly.keepAlive";
+
 }

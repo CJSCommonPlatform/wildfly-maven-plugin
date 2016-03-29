@@ -22,11 +22,6 @@
 
 package org.wildfly.plugin.server;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
@@ -44,6 +39,11 @@ import org.wildfly.plugin.common.ServerOperations;
 import org.wildfly.plugin.deployment.DeployMojo;
 import org.wildfly.plugin.deployment.Deployment;
 import org.wildfly.plugin.deployment.standalone.StandaloneDeployment;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Starts a standalone instance of WildFly and deploys the application to the server.
@@ -150,6 +150,7 @@ public class RunMojo extends DeployMojo {
     @Override
     protected void doExecute() throws MojoExecutionException, MojoFailureException {
         final Log log = getLog();
+        log.info("Server is starting up!!!!!!1");
         final File deploymentFile = file();
         final String deploymentName = deploymentFile.getName();
         final File targetDir = deploymentFile.getParentFile();

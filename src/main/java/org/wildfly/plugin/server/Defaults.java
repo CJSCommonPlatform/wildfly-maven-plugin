@@ -56,4 +56,6 @@ interface Defaults {
      * The default startup timeout.
      */
     String TIMEOUT = "60";
+
+    String KEEP_ALIVE = "false";
 }

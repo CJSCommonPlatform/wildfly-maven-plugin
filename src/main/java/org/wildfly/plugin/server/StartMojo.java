@@ -22,10 +22,6 @@
 
 package org.wildfly.plugin.server;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
@@ -37,6 +33,11 @@ import org.apache.maven.project.MavenProject;
 import org.wildfly.plugin.common.AbstractServerConnection;
 import org.wildfly.plugin.common.Files;
 import org.wildfly.plugin.common.PropertyNames;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Starts a standalone instance of WildFly Application Server.
@@ -50,6 +51,7 @@ import org.wildfly.plugin.common.PropertyNames;
 public class StartMojo extends AbstractServerConnection {
 
     public static final String WILDFLY_DIR = "wildfly-run";
+    public static final String TRUE = "true";
 
     /**
      * The project
@@ -149,6 +151,12 @@ public class StartMojo extends AbstractServerConnection {
     @Parameter(alias = "startup-timeout", defaultValue = Defaults.TIMEOUT, property = PropertyNames.STARTUP_TIMEOUT)
     private long startupTimeout;
 
+    /**
+     * Keep server running.
+     */
+    @Parameter(alias = "keep-alive", defaultValue = Defaults.KEEP_ALIVE, property = PropertyNames.KEEP_ALIVE)
+    private String keepAlive;
+
     private final RuntimeVersions runtimeVersions = new RuntimeVersions();
 
     @Override
@@ -181,9 +189,15 @@ public class StartMojo extends AbstractServerConnection {
             // Add the shutdown hook
             SecurityActions.registerShutdown(server);
             // Start the server
-            log.info("Server is starting up.");
+            log.info("Server is starting up");
             server.start();
             server.checkServerState();
+            if (TRUE.equals(keepAlive)) {
+                log.info("Hit Ctrl-C to stop the server");
+                while (server.isRunning()) {
+                    TimeUnit.SECONDS.sleep(1L);
+                }
+            }
         } catch (Exception e) {
             throw new MojoExecutionException("The server failed to start", e);
         }
