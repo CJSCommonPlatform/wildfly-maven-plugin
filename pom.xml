@@ -31,7 +31,7 @@
     </parent>
     <groupId>org.wildfly.plugins</groupId>
     <artifactId>wildfly-maven-plugin</artifactId>
-    <version>1.0.2.Fork</version>
+    <version>1.0.2.MoJ.Fork</version>
     <packaging>maven-plugin</packaging>
     <name>WildFly Maven Plugin</name>
 
@@ -76,7 +76,7 @@
     <properties>
         <!-- WildFly/JBoss dependencies -->
         <version.org.wildfly>8.1.0.Final</version.org.wildfly>
-        <version.org.wildfly.dist>${version.org.wildfly}</version.org.wildfly.dist>
+        <version.org.wildfly.dist>10.0.0.Final</version.org.wildfly.dist>
         <version.org.jboss.arquillian>1.0.3.Final</version.org.jboss.arquillian>
 
         <!-- maven dependencies -->
