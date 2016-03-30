@@ -32,7 +32,7 @@
 
     <groupId>org.wildfly.plugins</groupId>
     <artifactId>wildfly-maven-plugin</artifactId>
-    <version>1.0.2.MoJ.Fork-SNAPSHOT</version>
+    <version>1.0.2.MoJ.Fork</version>
     <packaging>maven-plugin</packaging>
     <name>WildFly Maven Plugin</name>
 
